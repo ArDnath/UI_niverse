@@ -1,6 +1,3 @@
-ArDnath: Generate me a readme file for this project which is a collection of forntend projects for students to develop their frontend skill by taking reference from the projects mentioned in it
-
-Workspace: Collecting workspace information```md
 # UI_niverse
 
 UI_niverse is a collection of frontend projects designed to help students and developers enhance their frontend development skills. This repository provides inspiration, reference, and hands-on practice for mastering the art of frontend development.
