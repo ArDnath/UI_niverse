@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './routes/HomePage.tsx'
-
+import GetStarted from './routes/GetStarted/GetStarted.tsx'
 
 const router = createBrowserRouter([{
   element:<App/>,
@@ -12,6 +12,14 @@ const router = createBrowserRouter([{
     {
       path: '/',
       element:<HomePage />
+    },
+    {
+      path:"/projects",
+      element: <GetStarted/>
+    },
+    {
+      path:"/projects/:projectId",
+      element:<GetStarted/>
     }
   ]
 }])

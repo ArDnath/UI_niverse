@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
-
 const Navbar = () => {
   return (
-    <header className="mx-auto shadow-sm">
-      <nav className="max-w-7xl mx-auto flex justify-between items-center h-16 px-4 sm:px-6 lg:px-8 border-b-2">
+    <header className="mx-auto">
+      <nav className="max-w-7xl mx-auto flex justify-between items-center h-16 px-4 sm:px-6 lg:px-8 border-b-3">
         
         {/* Logo */}
         <Link to="/">
@@ -15,7 +14,6 @@ const Navbar = () => {
 
         {/* Social Icons */}
         <div className="flex items-center gap-4">
-          {/* GitHub Icon */}
           <a
             href="https://github.com/ArDnath"
             target="_blank"
