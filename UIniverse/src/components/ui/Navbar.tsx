@@ -1,9 +1,8 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <header className="w-full shadow-sm">
+    <header className="mx-auto shadow-sm">
       <nav className="max-w-7xl mx-auto flex justify-between items-center h-16 px-4 sm:px-6 lg:px-8 border-b-2">
         
         {/* Logo */}

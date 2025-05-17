@@ -1,16 +1,19 @@
-import { Outlet } from "react-router-dom"
-import Navbar from "./components/ui/Navbar"
-import Footer from "./components/ui/Footer"
-function App() {
+import { Outlet } from "react-router-dom";
+import Navbar from "./components/ui/Navbar";
+import Footer from "./components/ui/Footer";
 
+function App() {
   return (
-    <div>
-      <Navbar/>
-      <Outlet/>
-      <Footer/>
+    <div className="min-h-screen">
+      <Navbar />
+      
+      <main className="flex-grow">
+        <Outlet />
+      </main>
+      
+      <Footer />
     </div>
-    
-  )
+  );
 }
 
-export default App
+export default App;
