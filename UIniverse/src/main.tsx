@@ -20,6 +20,10 @@ const router = createBrowserRouter([{
     {
       path:"/projects/:projectId",
       element:<GetStarted/>
+    },
+    {
+      path: '*',
+      element: <div>404 Not Found</div> // or your custom 404 component
     }
   ]
 }])

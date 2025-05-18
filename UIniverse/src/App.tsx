@@ -4,7 +4,7 @@ import Footer from "./components/ui/Footer";
 
 function App() {
   return (
-    <div className="min-h-screen">
+    <div className="w-full flex flex-col min-h-screen">
       <Navbar />
       
       <main className="flex-grow">
