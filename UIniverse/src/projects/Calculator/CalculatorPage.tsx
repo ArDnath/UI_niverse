@@ -1,72 +1,87 @@
-import { useState } from "react";
-
-const buttons = [
-  "C", "/", "*", "←",
-  "7", "8", "9", "-",
-  "4", "5", "6", "+",
-  "1", "2", "3", "=",
-  "0", ".", 
-];
+import {useState} from 'react';
 
 const CalculatorPage = () => {
-  const [expression, setExpression] = useState("");
-  const [error, setError] = useState(false);
 
-  const evaluateExpression = (expr: string) => {
-    try {
-      // Using Function constructor instead of eval (still only for demo apps!)
-      const result = Function(`"use strict"; return (${expr})`)();
-      setExpression(result.toString());
-      setError(false);
-    } catch {
-      setExpression("Error");
-      setError(true);
+    const [expression , setExpression] = useState<string>("");
+
+    const operators= ["+","-","*","/","%"];
+
+    const clearAll = () =>{
+        setExpression("");
     }
-  };
 
-  const handleClick = (value: string) => {
-    if (value === "C") {
-      setExpression("");
-      setError(false);
-    } else if (value === "←") {
-      setExpression((prev) => prev.slice(0, -1));
-    } else if (value === "=") {
-      evaluateExpression(expression);
-    } else {
-      if (error) setError(false);
-      setExpression((prev) => prev + value);
+    const handleNumberClick =(number: string) =>{
+        setExpression((prev)=>( prev + number));
+    };
+    const handleOperatorClick =(operator: string)=>{
+        setExpression((prev)=>{
+            if (prev ==="") return "";
+            const lastChar = prev.slice(-1);
+            if(operators.includes(lastChar)) return prev.slice(0,-1) +operator;
+            return prev +operator;
+        })
+        }
+
+    const handleEquals =()=>{
+        try {
+            const answer = Function(`return ${expression}`)();
+            setExpression(answer.toString())
+        } catch (error) {
+            setExpression("Error");
+            
+        }
+
     }
-  };
+    const buttons = [
+        { label: "AC", onClick: clearAll, className: "bg-red-500 text-white" },
+        { label: "(", onClick: () => handleNumberClick("(") },
+        { label: ")", onClick: () => handleNumberClick(")") },
+        { label: "÷", onClick: () => handleOperatorClick("/") },
+    
+        { label: "7", onClick: () => handleNumberClick("7") },
+        { label: "8", onClick: () => handleNumberClick("8") },
+        { label: "9", onClick: () => handleNumberClick("9") },
+        { label: "×", onClick: () => handleOperatorClick("*") },
+    
+        { label: "4", onClick: () => handleNumberClick("4") },
+        { label: "5", onClick: () => handleNumberClick("5") },
+        { label: "6", onClick: () => handleNumberClick("6") },
+        { label: "-", onClick: () => handleOperatorClick("-") },
+    
+        { label: "1", onClick: () => handleNumberClick("1") },
+        { label: "2", onClick: () => handleNumberClick("2") },
+        { label: "3", onClick: () => handleNumberClick("3") },
+        { label: "+", onClick: () => handleOperatorClick("+") },
+    
+        { label: "0", onClick: () => handleNumberClick("0"), className: "col-span-2" },
+        { label: ".", onClick: () => handleNumberClick(".") },
+        { label: "=", onClick: handleEquals, className: "bg-green-600 text-white" },
+      ];
+    
 
-  return (
-    <div className="min-h-screen bg-gradient-to-tr flex items-center justify-center p-4">
-      <div className="bg-gray-800 rounded-xl shadow-2xl p-6 w-full max-w-sm">
-        <div className={`text-white text-3xl p-4 rounded mb-4 h-20 bg-black break-words ${error ? "text-red-400" : ""}`}>
-          {expression || "0"}
+    return (
+        <div className="max-w-sm mx-auto mt-10 bg-neutral rounded-xl shadow-xl border-neutral-700 overflow-hidden">
+            <div className='bg-neutral-800 px-4 py-6'>
+                <div className='text-right text-lime-300 text-5xl font-mono min-h-[60px] break-words leading-snug'>
+                    {expression || "0"}
+                </div>
+            </div>
+            <div className='grid grid-cols-4 gap-2 p-4 bg-neutral-900'>
+                {buttons.map((button, index)=>(
+                    <button
+                    key={index}
+                    onClick={button.onClick}
+                    className={`p-4 rounded-md text-lg font-bold transition-all duration-150 ${
+                        button.className ||
+                        "bg-neutral-700 text-white hover:bg-neutral-600 active:scale-95"
+                      } ${button.className?.includes("col-span-2") ? "col-span-2" : ""}`}
+                    >
+                    {button.label}
+                    </button>
+                ))}
+            </div>
         </div>
-        <div className="grid grid-cols-4 gap-3">
-          {buttons.map((btn) => (
-            <button
-              key={btn}
-              className={`p-4 rounded-xl text-xl font-semibold transition-all duration-150 ${
-                btn === "="
-                  ? "bg-green-500 hover:bg-green-600 text-white"
-                  : btn === "C"
-                  ? "bg-red-500 hover:bg-red-600 text-white"
-                  : btn === "←"
-                  ? "bg-yellow-500 hover:bg-yellow-600 text-white"
-                  : "bg-gray-700 hover:bg-gray-600 text-white"
-              }`}
-              onClick={() => handleClick(btn)}
-              disabled={error && btn !== "C"}
-            >
-              {btn}
-            </button>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
+    );
+}
 
 export default CalculatorPage;
