@@ -38,7 +38,24 @@ import Weather from '@/projects/WeatherApp/Weather';
           'User input and form handling'
         ],
         difficulty: 'beginner'
+      },
+      {
+        id: 'stopwatch',
+        name: 'Stopwatch',
+        description: 'A responsive stopwatch with start, pause, and reset functionality',
+        icon: Clock, // Make sure to import a Clock icon or use one from your icon library
+        component: <Stopwatch />,
+        concepts: [
+          'State management with useState',
+          'Using useEffect and useRef for intervals',
+          'Time formatting in JavaScript',
+          'Event handling and dynamic UI updates',
+          'Functional components in React',
+          'Conditional rendering based on state'
+        ],
+        difficulty: 'beginner'
       }
+      
       
     ];
   }
