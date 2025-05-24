@@ -1,10 +1,12 @@
 import { 
     Calculator,
-    Sun 
+    Sun ,
+    Clock,
   } from 'lucide-react';
 import type { Project } from '@/types/types';
 import CalculatorPage  from '@/projects/Calculator/CalculatorPage';
 import Weather from '@/projects/WeatherApp/Weather';
+import Stopwatch from '@/projects/stopwatch/Stopwatch';
   
   export function getAllProjects(): Project[] {
     return [
@@ -43,7 +45,7 @@ import Weather from '@/projects/WeatherApp/Weather';
         id: 'stopwatch',
         name: 'Stopwatch',
         description: 'A responsive stopwatch with start, pause, and reset functionality',
-        icon: Clock, // Make sure to import a Clock icon or use one from your icon library
+        icon:Clock, // Make sure to import a Clock icon or use one from your icon library
         component: <Stopwatch />,
         concepts: [
           'State management with useState',
