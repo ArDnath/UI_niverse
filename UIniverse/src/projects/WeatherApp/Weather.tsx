@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { motion } from "framer-motion";
 
 interface WeatherData {
   name: string;
   sys: { country: string };
-  main: { temp: number; feels_like: number; humidity: number };
-  weather: { description: string }[];
+  main: { temp: number; feels_like: number; humidity: number; pressure?: number };
+  weather: { description: string; icon?: string }[];
   wind: { speed: number };
+  visibility?: number;
   rain?: { '1h'?: number };
 }
 

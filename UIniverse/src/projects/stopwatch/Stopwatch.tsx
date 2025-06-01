@@ -1,51 +1,49 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from 'react';
 
-const formatTime = (time: number): string => {
-  const getTwoDigits = (num: number) => String(num).padStart(2, '0');
-  const minutes = getTwoDigits(Math.floor(time / 60000));
-  const seconds = getTwoDigits(Math.floor((time % 60000) / 1000));
-  const milliseconds = getTwoDigits(Math.floor((time % 1000) / 10));
-  return `${minutes}:${seconds}.${milliseconds}`;
-};
-
-const Stopwatch: React.FC = () => {
-  const [isRunning, setIsRunning] = useState(false);
-  const [elapsedTime, setElapsedTime] = useState(0);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+const Stopwatch = () => {
+  const [time, setTime] = useState<number>(0);
+  const [isRunning, setIsRunning] = useState<boolean>(false);
 
   useEffect(() => {
+    let intervalId: ReturnType<typeof setInterval>;
     if (isRunning) {
-      intervalRef.current = setInterval(() => {
-        setElapsedTime((prev) => prev + 10);
+      intervalId = setInterval(() => {
+        setTime((prevTime) => prevTime + 1);
       }, 10);
-    } else if (intervalRef.current) {
-      clearInterval(intervalRef.current);
     }
+    return () => clearInterval(intervalId);
+  }, [isRunning, time]);
 
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, [isRunning]);
+  //hour calculation
+  const hour = Math.floor(time / 360000);
+  const min = Math.floor((time % 360000) / 6000);
+  const sec = Math.floor((time % 6000) / 100);
+  const milliseconds = time % 100;
 
-  const handleStartStop = () => setIsRunning((prev) => !prev);
-  const handleReset = () => {
-    setIsRunning(false);
-    setElapsedTime(0);
+  const startAndStop = () => {
+    setIsRunning(!isRunning);
   };
-
+  const reset = () => {
+    setTime(0);
+  };
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
-      <div className="text-6xl font-mono mb-10">{formatTime(elapsedTime)}</div>
-      <div className="space-x-4">
+    <div className="flex flex-col items-center justify-center min-h-96 bg-white text-black">
+      <p className="text-5xl font-mono mb-8">
+        {hour}:{min.toString().padStart(2, "0")}:
+        {sec.toString().padStart(2, "0")}:
+        {milliseconds.toString().padStart(2, "0")}
+      </p>
+
+      <div className="flex gap-4">
         <button
-          onClick={handleStartStop}
-          className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition-all"
+          onClick={startAndStop}
+          className="px-5 py-2 border border-black rounded hover:bg-black hover:text-white transition-colors"
         >
           {isRunning ? "Pause" : "Start"}
         </button>
         <button
-          onClick={handleReset}
-          className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition-all"
+          onClick={reset}
+          className="px-5 py-2 border border-black rounded hover:bg-black hover:text-white transition-colors"
         >
           Reset
         </button>
