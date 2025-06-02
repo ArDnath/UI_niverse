@@ -27,7 +27,7 @@ const Stopwatch = () => {
     setTime(0);
   };
   return (
-    <div className="flex flex-col items-center justify-center min-h-96 bg-white text-black">
+    <div className="flex flex-col items-center justify-center min-h-96 bg-white text-black border-8 rounded-2xl m-2 border-black">
       <p className="text-5xl font-mono mb-8">
         {hour}:{min.toString().padStart(2, "0")}:
         {sec.toString().padStart(2, "0")}:

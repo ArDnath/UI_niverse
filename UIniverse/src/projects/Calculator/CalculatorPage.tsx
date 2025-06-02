@@ -61,7 +61,7 @@ const CalculatorPage = () => {
     
 
     return (
-        <div className="max-w-sm mx-auto mt-10 bg-neutral rounded-xl shadow-xl border-neutral-700 overflow-hidden">
+        <div className="max-w-sm mx-auto m-10 bg-neutral rounded-xl shadow-xl border-neutral-700 overflow-hidden">
             <div className='bg-neutral-800 px-4 py-6'>
                 <div className='text-right text-lime-300 text-5xl font-mono min-h-[60px] break-words leading-snug'>
                     {expression || "0"}
