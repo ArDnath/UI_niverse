@@ -1,4 +1,4 @@
-import { useState } from "react";
+ import { useState } from "react";
 import Form from "./TodoComponents/Form";
 import TodoList from "./TodoComponents/TodoList";
 
@@ -20,7 +20,6 @@ const Todo = () => {
 
   const todos_completed = todos.filter((todo) => todo.is_completed).length;
   const total_todos = todos.length;
-  console.log(todos,todos_completed,)
 
   return (
     <div className="flex flex-col items-center gap-6 mt-8 px-4">

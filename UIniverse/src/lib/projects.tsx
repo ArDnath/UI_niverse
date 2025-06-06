@@ -2,14 +2,15 @@ import {
     Calculator,
     Sun ,
     Clock,
-    ListTodo
+    ListTodo,
+    Paintbrush
   } from 'lucide-react';
 import type { Project } from '@/types/types';
 import CalculatorPage  from '@/projects/Calculator/CalculatorPage';
 import Weather from '@/projects/WeatherApp/Weather';
 import Stopwatch from '@/projects/stopwatch/Stopwatch';
 import Todo from '@/projects/Todo/Todo';
-  
+import ColorSwitch from '@/projects/ColorSwitcher/ColorSwitch';
   export function getAllProjects(): Project[] {
     return [
       {
@@ -41,6 +42,23 @@ import Todo from '@/projects/Todo/Todo';
           "Conditional rendering based on loading/error state",
           "Parsing and displaying dynamic JSON data",
           "User input and form handling",
+        ],
+        difficulty: "beginner",
+      },
+      {
+        id: "bg-color-changer",
+        name: "Background Color Changer",
+        description:
+          "A fun and interactive app that lets users dynamically change the background color of the page with a click or input.",
+        icon: Paintbrush, // Replace with an appropriate icon from your icon library
+        component: <ColorSwitch />,
+        concepts: [
+          "Managing UI state with useState",
+          "Handling user input in React",
+          "Inline and dynamic styling in JSX",
+          "Event handling in React",
+          "Creating reusable components",
+          "Simple form controls and color validation",
         ],
         difficulty: "beginner",
       },
