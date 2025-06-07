@@ -37,7 +37,7 @@ const Form: React.FC<FormProps> = ({ setTodos }) => {
         <input
           type="text"
           name="todo"
-          className="border-2 border-black min-w-xl p-3 rounded"
+          className="border-2 border-black w-full max-w-2xl min-w-xl p-3 rounded"
           placeholder="Add a todo"
         />
         <button className="bg-green-400 border border-black text-white p-3 px-6 rounded font-bold">

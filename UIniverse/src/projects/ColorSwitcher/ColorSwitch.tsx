@@ -10,7 +10,6 @@ const ColorSwitch = () => {
     "purple",
     "cyan",
     "teal",
-    "fuchsia",
   ];
 
   const [color, setColor] = useState<string>(colorList[0]);
@@ -21,14 +20,15 @@ const ColorSwitch = () => {
 
   return (
     <div
-      className="flex items-center justify-center min-h-96 transition-colors duration-300"
+      className="flex flex-col items-center justify-center min-h-96 transition-colors duration-300 p-4"
       style={{ backgroundColor: color }}
     >
+      <h1 className="text-5xl font-extrabold mb-6">Color Switcher</h1>
       <div className="flex flex-wrap justify-center gap-4 p-4 bg-white/30 backdrop-blur-md rounded-full shadow-lg">
         {colorList.map((colorName) => (
           <button
             key={colorName}
-            className={`rounded-full bg-${colorName}-500 hover:opacity-80 transition p-2`}
+            className={`rounded-full bg-${colorName}-500 hover:opacity-80 transition p-2 px-3 text-shadow-gray-400 font-semibold`}
             onClick={() => handleColorChange(colorName)}
             style={{ backgroundColor: colorName }}
           >

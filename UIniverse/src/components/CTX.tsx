@@ -11,6 +11,6 @@ const CTX = () => {
             
         </div>
     );
-}
+};
 
 export default CTX;

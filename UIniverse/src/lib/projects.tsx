@@ -1,16 +1,18 @@
-import { 
-    Calculator,
-    Sun ,
-    Clock,
-    ListTodo,
-    Paintbrush
-  } from 'lucide-react';
+import {
+  Calculator,
+  Sun,
+  Clock,
+  ListTodo,
+  Paintbrush,
+  ShieldCheck,
+} from "lucide-react";
 import type { Project } from '@/types/types';
 import CalculatorPage  from '@/projects/Calculator/CalculatorPage';
 import Weather from '@/projects/WeatherApp/Weather';
 import Stopwatch from '@/projects/stopwatch/Stopwatch';
 import Todo from '@/projects/Todo/Todo';
 import ColorSwitch from '@/projects/ColorSwitcher/ColorSwitch';
+import PasswordChecker from '@/projects/PasswordChecker/PasswordChecker';
   export function getAllProjects(): Project[] {
     return [
       {
@@ -76,6 +78,23 @@ import ColorSwitch from '@/projects/ColorSwitcher/ColorSwitch';
           "Event handling and dynamic UI updates",
           "Functional components in React",
           "Conditional rendering based on state",
+        ],
+        difficulty: "beginner",
+      },
+      {
+        id: "password-checker",
+        name: "Password Strength Checker",
+        description:
+          "A responsive password strength checker that evaluates and displays password security levels in real time",
+        icon: ShieldCheck, // Replace with an appropriate icon from your library (e.g., lucide-react's ShieldCheck)
+        component: <PasswordChecker />,
+        concepts: [
+          "Real-time input handling with useState",
+          "String pattern matching with RegEx",
+          "Conditional logic for strength evaluation",
+          "Dynamic UI updates based on input",
+          "Creating interactive form components",
+          "Basic UX considerations in security prompts",
         ],
         difficulty: "beginner",
       },

@@ -59,7 +59,7 @@ import {
           </Card>
       
           {/* Live Preview / Terminal Style Component Area */}
-          <div className="flex-1 h-full rounded-lg border">
+          <div className="flex-1 h-full border rounded-2xl">
             <div className="bg-muted px-4 py-2 border-b">
               <div className="flex items-center gap-2">
                 <div className="h-3 w-3 rounded-full bg-red-500" />
