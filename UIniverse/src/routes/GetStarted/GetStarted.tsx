@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Sidebar from '@/components/Sidebar';
 import { getAllProjects } from '@/lib/projects';
@@ -8,7 +8,6 @@ import ProjectDisplay from '@/components/ProjectDisplay';
 export default function GetStartedPage() {
   const navigate = useNavigate();
   const { projectId } = useParams<{ projectId?: string }>();
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   const projects = getAllProjects();
 
@@ -27,21 +26,22 @@ export default function GetStartedPage() {
   const handleSelectProject = (project: Project) => {
     if (project.id !== projectId) {
       navigate(`/projects/${project.id}`);
-      setIsMobileOpen(false);
     }
   };
 
   return (
-    <div className="h-full flex">
-      <Sidebar 
-                  projects={projects} 
-                  selectedProject={selectedProject} 
-                  onSelectedProject={handleSelectProject} 
-                  className="border-0"
-                />
-      <main className="flex-1">
+    <div className="flex flex-col h-[calc(100vh-4rem)] mt-16">
+      <div className="flex flex-1 overflow-hidden">
+        <Sidebar 
+          projects={projects} 
+          selectedProject={selectedProject} 
+          onSelectedProject={handleSelectProject} 
+          className="border-0 h-full"
+        />
+        <main className="flex-1 overflow-auto p-4 md:p-6">
           <ProjectDisplay project={selectedProject} />
         </main>
+      </div>
     </div>
   );
 }
