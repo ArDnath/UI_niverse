@@ -24,7 +24,7 @@ import {
     }
   
     return (
-        <div className="container py-8 px-4 w-full">
+        <div className="container py-10 px-4 w-full">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold flex items-center gap-2">

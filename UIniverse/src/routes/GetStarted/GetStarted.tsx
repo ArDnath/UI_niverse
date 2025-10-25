@@ -30,7 +30,7 @@ export default function GetStartedPage() {
   };
 
   return (
-    <div className="flex flex-col h-[calc(100vh-4rem)] mt-16">
+    <div className="flex flex-col h-[calc(100vh-4rem)]">
       <div className="flex flex-1 overflow-hidden">
         <Sidebar 
           projects={projects} 
