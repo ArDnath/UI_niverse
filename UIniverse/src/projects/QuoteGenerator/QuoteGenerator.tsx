@@ -37,11 +37,6 @@ function QuoteGenerator() {
     alert("Quote copied to clipboard!");
   };
 
-  const shareQuote = () => {
-    const text = encodeURIComponent(`"${quote.text}" — ${quote.author}`);
-    window.open(`https://twitter.com/intent/tweet?text=${text}`, "_blank");
-  };
-
   return (
     <div className="flex flex-col items-center justify-center m-5 p-5 text-white">
       <motion.div
