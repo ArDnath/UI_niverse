@@ -6,6 +6,10 @@ import {
   Paintbrush,
   ShieldCheck,
   DollarSign,
+  QrCode,
+  DicesIcon,
+  Quote,
+  Activity
 } from "lucide-react";
 import type { Project } from '@/types/types';
 import CalculatorPage  from '@/projects/Calculator/CalculatorPage';
@@ -16,6 +20,9 @@ import ColorSwitch from '@/projects/ColorSwitcher/ColorSwitch';
 import PasswordChecker from '@/projects/PasswordChecker/PasswordChecker';
 import Tipcalculator from "@/projects/tip-calculator/Tipcalculator";
 import QRGenerator from "@/projects/QRGenerator/QRgenerator";
+import DiceRoller from "@/projects/Dice/rollDice";
+import QuoteGenerator from "@/projects/QuoteGenerator/QuoteGenerator";
+import BMICalculator from "@/projects/BMICalculator/BMICalculator";
 
   export function getAllProjects(): Project[] {
     return [
@@ -133,7 +140,71 @@ import QRGenerator from "@/projects/QRGenerator/QRgenerator";
           "Dynamic UI updates based on calculations"
         ],
         difficulty: "beginner"
+      },
+      {
+        id: "qr-generator",
+        name: "QR Code Generator",
+        description: "Generate QR codes from text or URLs with download option",
+        icon: QrCode,
+        component: <QRGenerator />,
+        concepts: [
+          "Using third-party libraries (qrcode.react)",
+          "Text input handling",
+          "Canvas or SVG rendering",
+          "Download functionality",
+          "URL validation"
+        ],
+        difficulty: "beginner"
+      },
+      {
+        id: "dice-roller",
+        name: "Dice Roller",
+        description:
+          "Roll virtual dice with animations and customizable number of dice",
+        icon: DicesIcon,
+        component: <DiceRoller />,
+        concepts: [
+          "Random number generation",
+          "Animation with CSS or Framer Motion",
+          "Array state management",
+          "Button event handling",
+          "Visual dice face rendering",
+        ],
+        difficulty: "beginner",
       }
+      ,
+      {
+        id: "quote-generator",
+        name: "Random Quote Generator",
+        description: "Display inspirational quotes with a click, featuring copy and share options",
+        icon: Quote,
+        component: <QuoteGenerator />,
+        concepts: [
+          "Working with arrays of data",
+          "Random selection logic",
+          "Clipboard API integration",
+          "Event handling",
+          "Simple animations with CSS/Framer Motion"
+        ],
+        difficulty: "beginner"
+      },
+      {
+        id: "bmi-calculator",
+        name: "BMI Calculator",
+        description: "Calculate Body Mass Index with health category indicators and visual feedback",
+        icon: Activity,
+        component: <BMICalculator />,
+        concepts: [
+          "Form input handling",
+          "Mathematical calculations",
+          "Conditional rendering for health categories",
+          "Unit conversion (kg/lbs, cm/ft)",
+          "Visual feedback with color-coded results"
+        ],
+        difficulty: "beginner"
+      }
+      
+      
       
     ];
   }
