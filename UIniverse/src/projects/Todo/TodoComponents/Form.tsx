@@ -32,16 +32,20 @@ const Form: React.FC<FormProps> = ({ setTodos }) => {
   };
 
   return (
-    <div>
-      <form className="flex gap-2 items-center" onSubmit={handleSubmit}>
+    <div className="w-full max-w-2xl mx-auto px-4">
+      <form className="flex flex-col sm:flex-row gap-2 w-full" onSubmit={handleSubmit}>
         <input
           type="text"
           name="todo"
-          className="border-2 border-black w-full max-w-2xl min-w-xl p-3 rounded"
-          placeholder="Add a todo"
+          className="flex-1 border-2 border-black p-3 rounded-lg text-base w-full focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent"
+          placeholder="Add a new task..."
+          aria-label="Add a new todo"
         />
-        <button className="bg-green-400 border border-black text-white p-3 px-6 rounded font-bold">
-          Add
+        <button 
+          type="submit"
+          className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-sm whitespace-nowrap"
+        >
+          Add Task
         </button>
       </form>
     </div>

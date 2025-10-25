@@ -22,23 +22,29 @@ const Todo = () => {
   const total_todos = todos.length;
 
   return (
-    <div className="flex flex-col items-center gap-6 mt-8 px-4">
+    <div className="w-full max-w-6xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
       {/* Header */}
-      <div className="flex items-center justify-between w-full max-w-2xl  rounded-lg  p-6 border-3 border-black">
-        <div>
-          <p className="text-3xl font-bold">Tasks Completed</p>
-          <p className="text-sm">Keep up the great work!</p>
-        </div>
-        <div className="text-2xl text-white bg-green-500 rounded-full  p-6 font-bold shadow-md">
-          {todos_completed}/{total_todos}
+      <div className="bg-white rounded-xl shadow-sm p-6 mb-8 border border-gray-200">
+        <div className="flex flex-col sm:flex-row items-center justify-between">
+          <div className="text-center sm:text-left mb-4 sm:mb-0">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Tasks Completed</h1>
+            <p className="text-sm text-gray-600">Keep up the great work!</p>
+          </div>
+          <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xl sm:text-2xl font-bold rounded-full w-24 h-24 flex items-center justify-center shadow-lg">
+            <span>{todos_completed}<span className="text-green-100">/</span>{total_todos}</span>
+          </div>
         </div>
       </div>
 
       {/* Form */}
-      <Form setTodos={setTodos} />
+      <div className="mb-8">
+        <Form setTodos={setTodos} />
+      </div>
 
       {/* Todo List */}
-      <TodoList todos={todos} setTodos={setTodos} />
+      <div className="w-full">
+        <TodoList todos={todos} setTodos={setTodos} />
+      </div>
     </div>
   );
 };
