@@ -5,6 +5,7 @@ import {
   ListTodo,
   Paintbrush,
   ShieldCheck,
+  DollarSign,
 } from "lucide-react";
 import type { Project } from '@/types/types';
 import CalculatorPage  from '@/projects/Calculator/CalculatorPage';
@@ -13,6 +14,9 @@ import Stopwatch from '@/projects/stopwatch/Stopwatch';
 import Todo from '@/projects/Todo/Todo';
 import ColorSwitch from '@/projects/ColorSwitcher/ColorSwitch';
 import PasswordChecker from '@/projects/PasswordChecker/PasswordChecker';
+import Tipcalculator from "@/projects/tip-calculator/Tipcalculator";
+import QRGenerator from "@/projects/QRGenerator/QRgenerator";
+
   export function getAllProjects(): Project[] {
     return [
       {
@@ -115,5 +119,21 @@ import PasswordChecker from '@/projects/PasswordChecker/PasswordChecker';
         ],
         difficulty: "beginner",
       },
+      {
+        id: "tip-calculator",
+        name: "Tip Calculator",
+        description: "Calculate tip amounts and split bills among multiple people",
+        icon: DollarSign,
+        component: <Tipcalculator />,
+        concepts: [
+          "Form handling with multiple inputs",
+          "Real-time calculations with useState",
+          "Number formatting and currency display",
+          "Input validation",
+          "Dynamic UI updates based on calculations"
+        ],
+        difficulty: "beginner"
+      }
+      
     ];
   }
