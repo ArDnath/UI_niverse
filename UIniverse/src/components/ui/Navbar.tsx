@@ -1,30 +1,23 @@
 import { Link } from 'react-router-dom';
 import {motion} from 'framer-motion';
-import { DynamicIcon } from 'lucide-react/dynamic';
-
 const Navbar = () => {
   
   return (
     <header className="w-full border-b">
-      <nav className="max-w-7xl mx-auto w-full flex justify-between items-center h-16 px-4 sm:px-6 lg:px-8">
+      <nav className="max-w-7xl mx-auto w-full flex flex-wrap justify-between items-center h-16 px-4 sm:px-6 lg:px-8">
         
         {/* Logo */}
-        <Link to="/" className='flex gap-2 justify-center'>
+        <Link to="/" className='flex gap-2  justify-center'>
         <motion.div
         initial={{opacity:0, x:-50}}
         animate={{opacity:1, x:0}}
         transition={{duration:0.8, ease: 'easeOut'}}
         >
-        
-        <DynamicIcon name='square-dashed-bottom-code'
-        className="transition-transform duration-500 hover:rotate-12"
-        color="Blue" 
-        size={35} 
-        />
+          <img src="/logo.png" alt="ui_niverseLogo" className='w-12 h-12'/>
         
 
         </motion.div>
-        <div className="text-3xl font-bold text-gray-800 ">
+        <div className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
           UI_niverse
         </div>
         </Link>
